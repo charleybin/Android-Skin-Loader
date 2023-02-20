@@ -18,4 +18,11 @@
     <drawable name="color_news_item_pressed">#11000000</drawable>
 
     <color name="color_sel_skin_btn_text">#24302b</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="blue">#0000ff</color>
+    <color name="setting_text">#050000</color>
+    <color name="color_collections">#ffffff</color>
+    <color name="text_color_collections">#050000</color>
 </resources>

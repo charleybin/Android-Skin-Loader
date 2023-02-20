@@ -1,5 +1,6 @@
 package cn.feng.skin.demo.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -24,8 +25,7 @@ public class SettingActivity extends BaseActivity {
 	 * /mnt/sdcard/BlackFantacy.skin
 	 */
 	private static final String SKIN_NAME = "BlackFantacy.skin";
-	private static final String SKIN_DIR = Environment
-			.getExternalStorageDirectory() + File.separator + SKIN_NAME;
+
 	
 	
 	private TextView titleText;
@@ -44,7 +44,7 @@ public class SettingActivity extends BaseActivity {
 
 	private void initView() {
 		titleText = (TextView) findViewById(R.id.title_text);
-		titleText.setText("设置皮肤");
+		titleText.setText(" 设置皮肤");
 		setOfficalSkinBtn = (Button) findViewById(R.id.set_default_skin);
 		setNightSkinBtn = (Button) findViewById(R.id.set_night_skin);
 		
@@ -88,11 +88,17 @@ public class SettingActivity extends BaseActivity {
 
 	private void onSkinSetClick() {
 		if(!isOfficalSelected) return;
-		
-		File skin = new File(SKIN_DIR);
+
+		String skinDir = Environment.getExternalStorageDirectory() + File.separator + SKIN_NAME;
+
+		if(Build.VERSION.SDK_INT > 27) {
+			skinDir = getBaseContext().getExternalFilesDir("skins").getAbsolutePath() + File.separator + SKIN_NAME;
+		}
+
+		File skin = new File(skinDir);
 
 		if(skin == null || !skin.exists()){
-			Toast.makeText(getApplicationContext(), "请检查" + SKIN_DIR + "是否存在", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "请检查" + skinDir + "是否存在", Toast.LENGTH_SHORT).show();
 			return;
 		}
 

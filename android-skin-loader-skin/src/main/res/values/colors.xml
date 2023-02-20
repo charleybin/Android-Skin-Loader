@@ -6,16 +6,20 @@
 
     <color name="color_app_bg">#003333</color>
     <color name="color_title_bar_bg">#006666</color>
-    <color name="color_title_bar_text">#CCFFFF</color>
+    <color name="color_title_bar_text">#1B55CA</color>
 
     <color name="color_new_item_bg">#003333</color>
     <color name="color_new_item_title">#fffed6</color>
     <color name="color_new_item_title_pressed">#ffffff</color>
-    <color name="color_new_item_synopsis">#CCFFCC</color>
+    <color name="color_new_item_synopsis">#EE9511</color>
     <color name="color_new_list_divider">#115eeb98</color>
 
     <drawable name="color_news_item_normal">#003333</drawable>
     <drawable name="color_news_item_pressed">#11ffffff</drawable>
 
     <color name="color_sel_skin_btn_text">#ffffff</color>
+
+    <color name="setting_text">#ED5424</color>
+    <color name="color_collections">#ff0000</color>
+    <color name="text_color_collections">#F1BC1F</color>
 </resources>

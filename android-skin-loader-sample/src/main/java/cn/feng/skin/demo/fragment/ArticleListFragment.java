@@ -22,6 +22,7 @@ import cn.feng.skin.demo.R;
 import cn.feng.skin.demo.activity.DetailActivity;
 import cn.feng.skin.demo.activity.SettingActivity;
 import cn.feng.skin.demo.entity.News;
+import cn.feng.skin.demo.personal.PersonalCenterActivity;
 import cn.feng.skin.manager.base.BaseFragment;
 import cn.feng.skin.manager.entity.AttrFactory;
 import cn.feng.skin.manager.entity.DynamicAttr;
@@ -57,12 +58,17 @@ public class ArticleListFragment extends BaseFragment{
 	
 	private void initData() {
 		datas = new ArrayList<News>();
-		for(int i = 0;i < 5; i++){
-			News news = new News();
-			news.content = "Always listen to your heart because even though it's on your left side, it's always right.";
-			news.title = "Dear Diary " + i;
-			datas.add(news);
-		}
+
+		//
+		News text = new News();
+		text.content = "Always listen to your heart because even though it's on your left side, it's always right.";
+		text.title = "文本测试";
+		datas.add(text);
+		//
+		News news = new News();
+		news.content = "点击后进入个人中心页，可查看换皮肤效果。";
+		news.title = "个人中心测试";
+		datas.add(news);
 	}
 	
 	private void initView(View v) {
@@ -76,7 +82,11 @@ public class ArticleListFragment extends BaseFragment{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
 				Intent intent = new Intent();
-				intent.setClass(getActivity(), DetailActivity.class);
+				if (id == 0) {
+					intent.setClass(getActivity(), DetailActivity.class);
+				} else {
+					intent.setClass(getActivity(), PersonalCenterActivity.class);
+				}
 				startActivity(intent);
 			}
 		});

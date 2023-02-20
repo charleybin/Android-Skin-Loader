@@ -29,7 +29,7 @@ public class BaseFragmentActivity extends FragmentActivity implements ISkinUpdat
 	 */
 	private boolean isResponseOnSkinChanging = true;
 	
-	private SkinInflaterFactory mSkinInflaterFactory;
+	private SkinInflaterFactory mSkinInflaterFactory = new SkinInflaterFactory();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,7 @@ public class BaseFragmentActivity extends FragmentActivity implements ISkinUpdat
             Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
             field.setAccessible(true);
             field.setBoolean(getLayoutInflater(), false);
-            
-    		mSkinInflaterFactory = new SkinInflaterFactory();
+
     		getLayoutInflater().setFactory(mSkinInflaterFactory);
 
         } catch (NoSuchFieldException e) {

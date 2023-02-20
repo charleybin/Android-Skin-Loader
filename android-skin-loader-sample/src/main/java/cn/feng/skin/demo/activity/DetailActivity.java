@@ -1,6 +1,7 @@
 package cn.feng.skin.demo.activity;
 
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.feng.skin.demo.R;
 import cn.feng.skin.manager.base.BaseActivity;
@@ -27,10 +28,22 @@ public class DetailActivity extends BaseActivity{
 	}
 
 	private void initView() {
-		titleText = (TextView) findViewById(R.id.title_text);
-		detailText = (TextView) findViewById(R.id.detail_text);
-		detailText.setTextColor(SkinManager.getInstance().getColor(R.color.color_new_item_title_pressed));
+		// 换标题
+		RelativeLayout titleBar = findViewById(R.id.title_bar_layout);
+		titleBar.setBackgroundColor(SkinManager.getInstance().getColor(R.color.color_title_bar_bg));
+
+		// 换背景
+		RelativeLayout background = findViewById(R.id.root_layout);
+		background.setBackgroundColor(SkinManager.getInstance().getColor(R.color.color_app_bg));
+
+		// 换标题
+		titleText = findViewById(R.id.title_text);
+		titleText.setTextColor(SkinManager.getInstance().getColor(R.color.color_new_item_title_pressed));
 		titleText.setText("生命中的美好都是免费的");
+		// 换文本内容
+		detailText = findViewById(R.id.detail_text);
 		detailText.setText(article);
+		detailText.setTextColor(SkinManager.getInstance().getColor(R.color.color_new_item_synopsis));
+		detailText.setBackgroundColor(SkinManager.getInstance().getColor(R.color.color_new_item_bg));
 	}
 }
